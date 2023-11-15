@@ -14,5 +14,12 @@ provider "aws" {
   region = "us-west-2"
 }
 
+# Calling EC2 child module
+module "Ec2" {
+  source = "./Ec2"
+}
 
-
+# Calling S3 child module
+module "S3" {
+  source = "./S3"
+}
