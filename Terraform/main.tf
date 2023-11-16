@@ -1,13 +1,17 @@
 terraform {
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.16"
+      source = "hashicorp/aws"
+      version = "5.25.0"
     }
   }
-
-  required_version = ">= 1.2.0"
 }
+
+provider "aws" {
+  profile = "default"
+  region  = "us-west-2"
+}
+
 
 # Configure the AWS Provider
 provider "aws" {
@@ -15,7 +19,7 @@ provider "aws" {
 }
 
 # Calling the network child module
-module "vpc" {
+module "Networks" {
   source = "./Networks"
 }
 
@@ -25,7 +29,7 @@ module "Server" {
 }
 
 # Calling the storage child module
-module "S3" {
+module "s3Webserver" {
   source = "./Storage"
 }
 

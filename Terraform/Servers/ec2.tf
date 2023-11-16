@@ -10,12 +10,6 @@ resource "aws_instance" "web" {
   sudo apt update -y
   sudo apt install apache2 -y
   echo "*** Completed Installing apache2"
-  sudo mkdir /tmp/ssm
-  cd /tmp/ssm
-  wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
-  sudo dpkg -i amazon-ssm-agent.deb
-  sudo systemctl enable amazon-ssm-agent
-  rm amazon-ssm-agent.deb
   EOL
 
   tags = {
