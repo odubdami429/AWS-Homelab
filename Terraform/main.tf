@@ -7,16 +7,12 @@ terraform {
   }
 }
 
+# Configure the AWS Provider
 provider "aws" {
   profile = "default"
   region  = "us-west-2"
 }
 
-
-# Configure the AWS Provider
-provider "aws" {
-  region = "us-west-2"
-}
 
 # Calling the network child module
 module "Networks" {
